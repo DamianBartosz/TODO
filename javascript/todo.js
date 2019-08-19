@@ -1,41 +1,72 @@
-class task {
-    constructor(name){
+class Task {
+    constructor(name) {
         this._name = name;
-        this._makeDate = new Date();
-        this._modificationDate = this._makeDate;
+        this._madeDate = new Date();
+        this._modDateFormat = this._madeDate;
+        this._madeDate = `${this._madeDate.toLocaleDateString()} ${this._madeDate.toLocaleTimeString()}`;
+        this._modificationDate = this._madeDate;
         this._completed = false;
     }
 
-    get name(){
+    get name() {
         return this._name;
     }
 
-    get makeDate(){
-        return this._makeDate;
+    get madeDate() {
+        return this._madeDate;
     }
 
-    get modificationDate(){
+    get modDateFormat() {
+        return this._modDateFormat;
+    }
+
+    get modificationDate() {
         return this._modificationDate;
     }
 
-    get completed(){
+    get completed() {
         return this._completed;
     }
 
-    set name(name){
-        this._name=name;
-        this._modificationDate = new Date();
+    set name(name) {
+        this._name = name;
+        this._modDateFormat = new Date();
+        this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
 
-    complete(){
+    complete() {
         this._completed = true;
+        this._modDateFormat = new Date();
+        this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
 
-    uncomplete(){
+    uncomplete() {
         this._completed = false;
+        this._modDateFormat = new Date();
+        this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
+    }
+
+    static addTaskClass(obj) {
+        return Object.setPrototypeOf(obj, Task.prototype);
     }
 }
 
-function addTask(){
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+tasks.map(obj => {
+    return Task.addTaskClass(obj);
+})
 
+function taskSort() {
+    tasks.sort((t1, t2) => {
+        if (t1.completed && !t2.completed) {
+            return 1;
+        } else if (!t1.completed && t2.completed) {
+            return -1;
+        } else if (t1.modDateFormat.valueOf()>t2.modDateFormat.valueOf()){
+            return 1;
+        }else {
+            return -1;
+        }
+    })
 }
+
