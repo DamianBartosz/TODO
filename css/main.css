@@ -1,0 +1,49 @@
+body {
+    background-color: #bceaffea;
+    margin: 0;
+}
+
+header h1 {
+    width: 100%;
+    font-size: 4rem;
+    text-align: center;
+    margin: auto;
+    padding: 0.5rem 0;
+    color: white;
+    text-shadow: 3px 3px 5px black;
+    background-color: #20b9ffea;
+}
+
+#addTask{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+}
+
+#addTask *{
+    box-sizing: border-box;
+    margin: 2px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 2px 2px 5px black;
+}
+
+#addTask input{
+    width: 60%;
+}
+
+#tasks{
+    box-sizing: border-box;
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.task{
+    height: 50px;
+}
