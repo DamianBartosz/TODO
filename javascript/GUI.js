@@ -98,6 +98,7 @@ function completedChange(tsk) {
 function edit(tsk) {
     tsk.GUIel.querySelector(".taskName").innerHTML = `<input type="text" style="width: 100%; padding: 10px;" value="${tsk.name}">`;
     tsk.GUIel.querySelector(".dates").style.display = "none";
+    Array.from(tsk.GUIel.querySelector(".buttons").getElementsByTagName("button")).forEach(button => button.style.display = "none");
     tsk.GUIel.querySelector(".acceptCancel").style.display = "flex";
 }
 
@@ -111,6 +112,7 @@ function remove(tsk){
 function accept(tsk){
     tsk.name = tsk.GUIel.querySelector(".taskName").querySelector("input").value;
     tsk.GUIel.querySelector(".dates").style.display = "flex";
+    Array.from(tsk.GUIel.querySelector(".buttons").getElementsByTagName("button")).forEach(button => button.style.display = "flex");
     tsk.GUIel.querySelector(".acceptCancel").style.display = "none";
     GUIDateModification(tsk);
     setOrders();
@@ -120,6 +122,7 @@ function accept(tsk){
 
 function cancel(tsk){
     tsk.GUIel.querySelector(".dates").style.display = "flex";
+    Array.from(tsk.GUIel.querySelector(".buttons").getElementsByTagName("button")).forEach(button => button.style.display = "flex");
     tsk.GUIel.querySelector(".acceptCancel").style.display = "none";
     GUIComplete(tsk);
 }
