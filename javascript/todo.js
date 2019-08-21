@@ -34,20 +34,32 @@ class Task {
         this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
 
-    complete() {
-        this._completed = true;
-        this._modDateFormat = new Date();
-        this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
-    }
-
-    uncomplete() {
-        this._completed = false;
+    completeUncomplete() {
+        this._completed = !this._completed;
         this._modDateFormat = new Date();
         this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
 
     static addTaskClass(obj) {
         return Object.setPrototypeOf(obj, Task.prototype);
+    }
+
+    addToGUI(name){
+        this.GUIel = document.createElement("div");
+        this.GUIel.classList.add("task");
+        this.completeButton = document.createElement("button");
+        this.completeButton.innerHTML = '<div class="icon-ok"></div>';
+        this.completeButton.addEventListener("click", completeUncomplete);
+        this.editButton = document.createElement("button");
+        this.completeButton.innerHTML = '<div class="icon-pencil"></div>';
+        this.deleteButton = document.createElement("button");
+        this.completeButton.innerHTML = '<div class="icon-trash-empty"></div>';
+        this.acceptButton = document.createElement("button");
+        this.completeButton.innerHTML = '<div class="icon-ok"></div>';
+        this.cancelButton = document.createElement("button");
+        this.completeButton.innerHTML = '<div class="icon-cancel-outline"></div>';
+        
+        GUIel.innerHTML=
     }
 }
 

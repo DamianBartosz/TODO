@@ -1,5 +1,10 @@
+:root {
+    --back-col: #bceaffea;
+    --col: #20b9ffea;
+}
+
 body {
-    background-color: #bceaffea;
+    background-color: var(--back-col);
     margin: 0;
 }
 
@@ -11,17 +16,17 @@ header h1 {
     padding: 0.5rem 0;
     color: white;
     text-shadow: 3px 3px 5px black;
-    background-color: #20b9ffea;
+    background-color: var(--col);
 }
 
-#addTask{
+#addTask {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 10px;
 }
 
-#addTask *{
+#addTask * {
     box-sizing: border-box;
     margin: 2px;
     height: 40px;
@@ -31,19 +36,88 @@ header h1 {
     box-shadow: 2px 2px 5px black;
 }
 
-#addTask input{
+#addTask [type="text"] {
     width: 60%;
 }
 
-#tasks{
+#addTask [type="submit"] {
+    width: 10%;
+    min-width: 60px;
+}
+
+#tasks {
     box-sizing: border-box;
     width: 90%;
     padding: 10px;
-    margin: auto;
+    margin: 15px auto;
     border-radius: 5px;
     background-color: white;
 }
 
-.task{
-    height: 50px;
+.task {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    padding: 10px;
+    margin: 10px auto;
+    border-top: 2px solid #ccc;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 5%;
+    min-width: 30px;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    font-size: 1rem;
+    color: white;
+}
+
+button {
+    border: none;
+    border-radius: 10%;
+    width: 35px;
+    height: 30px;
+    background-color: var(--col);
+}
+
+.taskName {
+    align-self: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.8rem;
+}
+
+.date{
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+}
+
+.label{
+    width: 90px;
+    color: #777;
+}
+
+.content{
+    width: 60px;
+}
+
+.acceptCancel {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 170px;
+    
 }
