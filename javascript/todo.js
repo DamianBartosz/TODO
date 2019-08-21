@@ -34,8 +34,12 @@ class Task {
         this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
 
+    parseModDateFormat(){
+        this._modDateFormat = new Date(this._modDateFormat);
+    }
+
     completeUncomplete() {
-        this._completed = !this._completed;
+        this._completed = !this.completed;
         this._modDateFormat = new Date();
         this._modificationDate = `${this._modDateFormat.toLocaleDateString()} ${this._modDateFormat.toLocaleTimeString()}`;
     }
@@ -44,22 +48,10 @@ class Task {
         return Object.setPrototypeOf(obj, Task.prototype);
     }
 
-    addToGUI(name){
-        this.GUIel = document.createElement("div");
-        this.GUIel.classList.add("task");
-        this.completeButton = document.createElement("button");
-        this.completeButton.innerHTML = '<div class="icon-ok"></div>';
-        this.completeButton.addEventListener("click", completeUncomplete);
-        this.editButton = document.createElement("button");
-        this.completeButton.innerHTML = '<div class="icon-pencil"></div>';
-        this.deleteButton = document.createElement("button");
-        this.completeButton.innerHTML = '<div class="icon-trash-empty"></div>';
-        this.acceptButton = document.createElement("button");
-        this.completeButton.innerHTML = '<div class="icon-ok"></div>';
-        this.cancelButton = document.createElement("button");
-        this.completeButton.innerHTML = '<div class="icon-cancel-outline"></div>';
-        
-        GUIel.innerHTML=
+    
+
+    setOrder(ord) {
+        this.GUIel.style.order = ord;
     }
 }
 
@@ -74,9 +66,9 @@ function taskSort() {
             return 1;
         } else if (!t1.completed && t2.completed) {
             return -1;
-        } else if (t1.modDateFormat.valueOf()>t2.modDateFormat.valueOf()){
+        } else if (t1.modDateFormat.valueOf() > t2.modDateFormat.valueOf()) {
             return 1;
-        }else {
+        } else {
             return -1;
         }
     })

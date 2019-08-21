@@ -23,7 +23,8 @@ header h1 {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 10px;
+    margin: 20px;
+    order: -1;
 }
 
 #addTask * {
@@ -46,6 +47,8 @@ header h1 {
 }
 
 #tasks {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     width: 90%;
     padding: 10px;
@@ -57,10 +60,14 @@ header h1 {
 .task {
     display: flex;
     justify-content: space-around;
-    height: 100px;
+    box-sizing: border-box;
+    height: 120px;
     padding: 10px;
-    margin: 10px auto;
     border-top: 2px solid #ccc;
+}
+
+.completed {
+    background-color: #ddd;
 }
 
 .buttons {
@@ -89,6 +96,11 @@ button {
     align-self: center;
     width: 100%;
     margin: 10px;
+    overflow: auto; 
+}
+
+.taskName .icon-ok:before {
+    color: green;
 }
 
 .dates {
@@ -98,18 +110,18 @@ button {
     font-size: 0.8rem;
 }
 
-.date{
+.date {
     display: flex;
     justify-content: space-between;
     width: 170px;
 }
 
-.label{
+.label {
     width: 90px;
     color: #777;
 }
 
-.content{
+.content {
     width: 60px;
 }
 
@@ -119,5 +131,5 @@ button {
     justify-content: space-around;
     align-items: center;
     width: 170px;
-    
+
 }
