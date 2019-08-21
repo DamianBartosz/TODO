@@ -53,7 +53,7 @@ function completeTask() {
     if (number === 0) {
         return;
     }
-    arr[number - 1].complete();
+    arr[number - 1].completeUncomplete();
     taskSort();
     localStorage.setItem("tasks", JSON.stringify(tasks));
     menu();
@@ -69,7 +69,7 @@ function uncompleteTask() {
     if (number === 0) {
         return;
     }
-    arr[number - 1].uncomplete();
+    arr[number - 1].completeUncomplete();
     taskSort();
     localStorage.setItem("tasks", JSON.stringify(tasks));
     menu();

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO</title>
 
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <script src="javascript/todo.js" async></script>
@@ -19,13 +20,44 @@
         <h1>TODO</h1>
     </header>
     <main>
-        <form id="addTask">
-            <input type="text" placeholder="Dodaj nowe zadanie">
-            <button>Dodaj</button>
-        </form>
         <div id="tasks">
+            <form id="addTask">
+                <input type="text" placeholder="Dodaj nowe zadanie">
+                <input type="submit" value="Dalej">
+            </form>
             <div class="task">
-                owerif
+                <div class="buttons">
+                    <button>
+                        <div class="icon-ok"></div>
+                    </button>
+                    <button>
+                        <div class="icon-pencil"></div>
+                    </button>
+                    <button>
+                        <div class="icon-trash-empty"></div>
+                    </button>
+                </div>
+                <div class="taskName">
+                    Przykładowe zadanie
+                </div>
+                <div class="dates">
+                    <div class="date">
+                        <div class="label">Data ostatniej modyfikacji:</div>
+                        <div class="content">21.09.2019 11:35:24</div>
+                    </div>
+                    <div class="date">
+                            <div class="label">Data utworzenia:</div>
+                            <div class="content">21.09.2019 11:35:24</div>
+                    </div>
+                </div>
+                <div class="acceptCancel">
+                        <button>
+                                <div class="icon-ok"></div>
+                            </button>
+                            <button>
+                                <div class="icon-cancel-outline"></div>
+                            </button>
+                </div>
             </div>
         </div>
     </main>
